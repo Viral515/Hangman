@@ -8,7 +8,7 @@ import java.util.List;
 public class DrawingTool {
     private static long GALLOWSLINESCOUNT = 8;
 
-    private Path hangmanGallowsFilePath = Paths.get("D:\\GithubProjects\\Hangman\\src\\resources\\HangmanGallows.txt");
+    private Path hangmanGallowsFilePath = Paths.get("src\\resources\\HangmanGallows.txt");
 
     public void PrintGameInfo(char[] currentWord, int failsCount){
         try {

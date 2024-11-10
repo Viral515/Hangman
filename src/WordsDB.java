@@ -7,7 +7,7 @@ import java.util.Random;
 
 public class WordsDB {
 
-    private Path wordsFilePath = Paths.get("D:\\GithubProjects\\Hangman\\src\\resources\\words.txt");
+    private Path wordsFilePath = Paths.get("src\\resources\\words.txt");
 
     public char[] GetNewWord(){
         try{
