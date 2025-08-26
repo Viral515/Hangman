@@ -2,12 +2,13 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
 public class WordsDB {
 
-    private Path wordsFilePath = Paths.get("src\\resources\\words.txt");
+    private final Path wordsFilePath = Paths.get("src\\resources\\words.txt");
 
     public char[] GetNewWord(){
         try{
@@ -22,31 +23,26 @@ public class WordsDB {
 
     public char[] GetNewEmptyWord(int length){
         char[] newEmptyWord = new char[length];
-        for(int i = 0; i < length; i++) {
-            newEmptyWord[i] = '_';
-        }
+        Arrays.fill(newEmptyWord, '_');
         return newEmptyWord;
     }
 
     public boolean CheckWordOnLetter(char letter, char[] correctWord){
         int letterCounter = 0;
-        for(int i = 0; i < correctWord.length; i++){
-            if(correctWord[i] == letter){
+        for (char c : correctWord) {
+            if (c == letter) {
                 letterCounter++;
             }
         }
-        if(letterCounter > 0 ){
-            return true;
-        }
-        return false;
+        return letterCounter > 0;
     }
 
-    public char[] OpenTheLetters(char letter, char[] correctWord, char[] emptyWord) {
+    public char[] OpenTheLetters(char letter, char[] correctWord, char[] currentWord) {
         for(int i = 0; i < correctWord.length; i++){
             if(correctWord[i] == letter){
-                emptyWord[i] = letter;
+                currentWord[i] = letter;
             }
         }
-        return emptyWord;
+        return currentWord;
     }
 }
